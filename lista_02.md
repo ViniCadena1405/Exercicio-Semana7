@@ -42,7 +42,7 @@ Qual das seguintes alternativas melhor descreve o que o código faz?
 
 A) O código avalia a expressão booleana, imprime o resultado `false`, calcula a soma dos números de 1 a 5 e imprime o resultado no console.
 
-B) O código avalia a expressão booleana, imprime o resultado `true`, calcula a soma dos números de 1 a 5 e imprime o resultado no console.
+B) O código avalia a expressão booleana, imprime o resultado `true`, calcula a soma dos números de 1 a 5 e imprime o resultado no console. X
 
 C) O código avalia a expressão booleana, imprime o resultado `true` e verifica se o número 5 está presente na lista de números.
 
@@ -110,7 +110,7 @@ B) A saída de calcularOrcamento() seria: 'Seu saldo é negativo de -1050.' e a 
 
 C) A saída de calcularOrcamento() seria: 'Seu saldo é negativo de -100.' e a de calcularOrcamento2() seria: 'Seu saldo é negativo de -1050.'
 
-D) As funções calcularOrcamento() e calcularOrcamento2() teriam a mesma saída: 'Seu saldo é negativo de -100.'
+D) As funções calcularOrcamento() e calcularOrcamento2() teriam a mesma saída: 'Seu saldo é negativo de -100.' X
 
 ______
 
@@ -135,7 +135,7 @@ A) O código verifica se o número é divisível por 3 e, se for, exibe a mensag
 
 B) O código verifica se o número é par ou ímpar. Se for par, exibe a mensagem "O número é par!". Se for ímpar, exibe a mensagem "O número é ímpar!".
 
-C) O código verifica se o número é par, ímpar ou divisível por 3. Se for par, exibe a mensagem "O número é par!". Se for divisível por 3, exibe a mensagem "O número é divisível por 3!". Se for ímpar, exibe a mensagem "O número é ímpar e não é divisível por 3!".
+C) O código verifica se o número é par, ímpar ou divisível por 3. Se for par, exibe a mensagem "O número é par!". Se for divisível por 3, exibe a mensagem "O número é divisível por 3!". Se for ímpar, exibe a mensagem "O número é ímpar e não é divisível por 3!". X
 
 D) O código verifica se o número é par, se é divisível por 3 ou se é ímpar. Se for par, exibe a mensagem "O número é par!". Se for divisível por 3 (e não for par), exibe a mensagem "O número é divisível por 3!". Se for ímpar (e não for divisível por 3), exibe a mensagem "O número é ímpar e não é divisível por 3!".
 
@@ -211,7 +211,7 @@ Compra 3 aprovada com limite de crédito. Saldo restante: 200
 
 Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
 
-Compra 5 negada. Saldo insuficiente e limite de crédito excedido.
+Compra 5 negada. Saldo insuficiente e limite de crédito excedido. X
 
 ______
 
@@ -221,7 +221,7 @@ Escolha a opção que responde corretamente:
 
 A) Setup -> Update -> Draw
 
-B) Preload -> Create -> Update
+B) Preload -> Create -> Update X
 
 C) Load -> Initialize -> Render
 
@@ -234,7 +234,7 @@ Escolha a opção que responde corretamente:
 
 A) Renderizar gráficos 3D para jogos em HTML5.
 
-B) Simular interações físicas realistas, como colisões e movimentos, em jogos 2D.
+B) Simular interações físicas realistas, como colisões e movimentos, em jogos 2D. X
 
 C) Criar efeitos de áudio para melhorar a experiência do usuário em jogos.
 
@@ -273,20 +273,38 @@ ______
 </html>
 ______
 
-**8)** Considere a implementação da classe base FormaGeometrica em um sistema de modelagem de formas geométricas. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Retangulo e Circulo, que herdam da classe FormaGeometrica, adicionando atributos específicos e métodos para calcular a área de um retângulo e de um círculo, respectivamente.
+**8)** 
 
-```
-Classe FormaGeometrica:
-    Atributos:
-        - cor
+class FormaGeométrica {
+    constructor(cor) {
+        this.cor = cor;
+    }
 
-    Método Construtor(cor):
-        Define o valor do atributo cor com o valor passado como parâmetro.
+    área(a, b) {
+        console.log((a * b).toFixed(2));
+    }
+}
 
-    Método CalcularArea():
-        # Implementação genérica para cálculo de área, a ser sobrescrita pelas subclasses.
+class Círculo extends FormaGeométrica {
+    constructor(cor, raio) {
+        super(cor);
+        this.raio = raio;
+    }
+}
 
-```
+class Retângulo extends FormaGeométrica {
+    constructor(cor, base, altura) {
+        super(cor);
+        this.base = base;
+        this.altura = altura;
+    }
+}
+
+var circulo = new Círculo("Vermelho", 5);
+var retângulo = new Retângulo("Verde", 4, 5);
+
+circulo.área(circulo.raio ** 2, Math.PI);
+retângulo.área(retângulo.base, retângulo.altura);
 
 ______
 
