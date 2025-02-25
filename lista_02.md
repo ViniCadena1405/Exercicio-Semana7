@@ -308,12 +308,43 @@ retângulo.área(retângulo.base, retângulo.altura);
 
 ______
 
-**9)** Você foi contratado(a) como estagiário(a) da Tesla e está participando do desenvolvimento de um programa para simular o desempenho de um carro elétrico em uma corrida. Seu objetivo é determinar em quantos minutos o carro levará para completar uma determinada distância, levando em consideração uma velocidade inicial e uma taxa de aceleração constante. No entanto, você deseja garantir que o carro não exceda uma velocidade máxima nem que a corrida demore mais do que um tempo máximo. Implemente a lógica dessa simulação em pseudocódigo.
+**9)** 
 
-Considere a fórumla de atualização velocidade:
-```
-    velocidade = velocidadeInicial + aceleracao*tempo
-```
+class Carro {
+    constructor(aceleração) {
+        this.aceleração = aceleração;
+    }
+
+    calcularDistância(d, tMax) {
+
+        this.dRest = 0;
+
+        this.velocidade = 0;
+        this.tempo = 0;
+        this.velocidadeInicial = 0;
+
+        while(this.dRest < d && this.tempo < tMax) {
+
+            if(this.velocidade > 35) {
+                this.velocidade = 35;
+            }
+
+            this.tempo += 1;
+            this.dRest += this.velocidade;
+
+            if(this.dRest > d) {
+                this.dRest = d;
+            }
+
+            this.velocidade = this.velocidadeInicial + this.aceleração * this.tempo;
+        }
+
+        console.log(`Você andou ${this.dRest} metros em ${this.tempo} minutos`);
+    }
+}
+
+carro = new Carro(5);
+carro.calcularDistância(100, 55);
 
 ______
 
