@@ -348,30 +348,36 @@ carro.calcularDistância(100, 55);
 
 ______
 
-**10)** Uma matriz é uma coleção bidimensional de elementos, organizados em linhas e colunas. A seguir, é fornecida a implementação da função SomaDeMatrizes(matrizA, matrizB), que calcula a soma de duas matrizes. Sua tarefa é implementar uma função semelhante, porém que realize a multiplicação de duas matrizes.
+**10)** 
 
-```
-Função SomaDeMatrizes(matrizA, matrizB):
-    # Verifica se as duas matrizes têm o mesmo número de linhas e colunas
-    Se tamanho(matrizA) ≠ tamanho(matrizB) então:
-        Retornar "As matrizes não podem ser somadas. Elas têm dimensões diferentes."
-    Senão:
-        linhas <- tamanho(matrizA)
-        colunas <- tamanho(matrizA[0]) # Considerando que todas as linhas têm o mesmo número de colunas
-        matrizResultado <- novaMatriz(linhas, colunas)
+function multiplicarMatrizes(matrizA, matrizB) {
+    if(matrizA[0].length != matrizB.length) {
+        return "A multiplicação não pode ser efetuada. O número de linhas da matriz A é diferente do número de colunas da matriz B";
+    }
 
-        # Loop para percorrer cada elemento das matrizes e calcular a soma
-        Para i de 0 até linhas-1 faça:
-            Para j de 0 até colunas-1 faça:
-                matrizResultado[i][j] <- matrizA[i][j] + matrizB[i][j]
+    else {
 
-        Retornar matrizResultado
+        var linha = matrizA.length;
+        var coluna = matrizA[0].length;
+        var resultado = [];
 
-# Exemplo de uso da função
-matrizA <- [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-matrizB <- [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+        for(let i = 0; i <= linha - 1; i++) {
+            resultado.push([]);
+            for(let j = 0; j <= matrizB[0].length - 1; j++) {
+                resultado[i][j] = 0;
+                for(let c = 0; c <= coluna - 1; c++) {
+                    resultado[i][j] += matrizA[i][c] * matrizB[c][j];
+                }
+            }
+        }
 
-matrizSoma <- SomaDeMatrizes(matrizA, matrizB)
-Escrever("Soma das matrizes:")
-ImprimirMatriz(matrizSoma)
-```
+        return resultado;
+ 
+    }  
+}
+
+var matriz1 =  [[7, 4, 8], [6, 3, 6]];
+var matriz2 = [[8, 8], [9, 8], [4, 0]];
+
+
+console.log(multiplicarMatrizes(matriz1, matriz2));
